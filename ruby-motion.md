@@ -6,6 +6,9 @@
 
 # W-w-w-who?
 
+^ Long time Rubyist
+Last Ruby Ireland talk was 30th August 2011, 3 years ago, on Rails 3.1
+
 ---
 
 # @paulca
@@ -24,6 +27,8 @@
 ## https://ti.to
 
 ^ Irish, not Tonganese!
+The smoothest, slickest event registration platform on the planet.
+Tell your friends!
 
 ---
 
@@ -31,8 +36,12 @@
 ## http://ull.ie
 
 ^ Irish for Apple.
+A conference about great products.
+Next March. Add your email.
 
 ---
+
+# RubyMotion
 
 ## A Bit of Background
 
@@ -217,7 +226,7 @@ left Apple, presumably because of Swift
 # What about Swift?
 
 ^ It's not Ruby
-Swift will never do android
+Swift will never really do Android
 It's almost like for like ... the beauty is the LLVM
 Swift, Objective-C, Ruby ... all interchangeable
 
@@ -430,6 +439,10 @@ class AppDelegate
 end
 ```
 
+^ This is our very first Hello World app.
+UIAlertView is a native app component.
+You'll need to get used to Cocoa native components.
+
 ---
 
 # app/app_delegate.rb
@@ -443,9 +456,16 @@ class AppDelegate
 end
 ```
 
+^ RubyMotion contains lots of helpers.
+This is an example of taking 3 lines and making it 1 line.
+Loads of other helpers
+
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/rrbakyf4x23efe2/2014-09-22%20at%2021.44%202x.png?dl=0)
+
+^ Here's what it looks like!
+Let's do more than Hello World
 
 ---
 
@@ -464,6 +484,9 @@ class HomeViewController < UIViewController
   end
 end
 ```
+
+^ Again, we're using lots of Cocoa elements, and Cocoa callbacks.
+RubyMotion and its helpers are gateways into the Cocoa world
 
 ---
 
@@ -482,17 +505,25 @@ end
 
 ```
 
+^ This is the standard way to initialize a fullscreen view on iOS
+
 ---
 
 # WHOOPS!
 
 ![inline](https://dl.dropboxusercontent.com/s/zxfsylrkevxsc07/2014-09-22%20at%2021.59%202x.png?dl=0)
 
+^ Yay!
+But it's Ruby! Isn't there a neater way?
+Yes!
+
 ---
 
 # Motion Kit
 
 ![inline](https://dl.dropboxusercontent.com/s/pobex7bspqgiyee/2014-09-22%20at%2022.00%202x%20%281%29.png?dl=0)
+
+^ Motion Kit, is like CSS for RubyMotion, lets you separate style from view
 
 ---
 
@@ -507,6 +538,8 @@ gem 'rake'
 gem "bubble-wrap", "~> 1.7.1"
 gem 'motion-kit'
 ```
+
+^ Add motion-kit to your Gemfile
 
 ---
 
@@ -526,6 +559,9 @@ class HomeViewController < UIViewController
 end
 ```
 
+^ I used Belfast Ruby because Ruby Ireland doesn't have a logo anymore
+Instead of this...
+
 ---
 
 # app/home\_view\_controller.rb
@@ -541,6 +577,8 @@ class HomeViewController < UIViewController
 end
 ```
 
+^ ...we create a layout ... the layout is now responsible for arranging elements on the screen
+
 ---
 
 # app/layouts/home\_screen\_layout.rb
@@ -550,6 +588,8 @@ class HomeScreenLayout < MotionKit::Layout
   
 end
 ```
+
+^ create the layout...
 
 ---
 
@@ -563,6 +603,8 @@ class HomeScreenLayout < MotionKit::Layout
 end
 ```
 
+^ add the layout method
+
 ---
 
 # app/layouts/home\_screen\_layout.rb
@@ -574,6 +616,8 @@ class HomeScreenLayout < MotionKit::Layout
   end
 end
 ```
+
+^ ...add our UIImageView back
 
 ---
 
@@ -595,11 +639,15 @@ class HomeScreenLayout < MotionKit::Layout
 end
 ```
 
-^ loads of options for frames
+^ Use this CSS-like syntax, that interacts with Cocoa's frame layout API.
+'belfast-ruby' is a .png in the resources/ folder
 
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/44i3cbmygv94mf9/2014-09-22%20at%2022.15%202x.png?dl=0)
+
+^ ... and we get something very similar, but we've separated out our layout
+Let's tidy it up.
 
 ---
 
@@ -679,6 +727,8 @@ end
 
 ![inline](https://dl.dropboxusercontent.com/s/drojrbvauiq2gpb/2014-09-22%20at%2022.24%202x.png?dl=0)
 
+^ And it's looking a bit better, but let's center it up. For that we'll use Auto-Layout
+
 ---
 
 ```ruby
@@ -691,7 +741,7 @@ def logo_style
 end
 ```
 
-^ a bit about auto-layout
+^ a bit about auto-layout ... it's like responsive design for Cocoa. Very powerful, very complicated, very confusing.
 
 ---
 
@@ -708,39 +758,31 @@ def logo_style
 end
 ```
 
-^ a bit about auto-layout
+^ Auto Layout is all about constraints, which are rules relative to other elements on the screen.
 
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/5pdb9coq386rf9l/2014-09-22%20at%2022.36%202x.png?dl=0)
 
----
-
-# Gemfile
-
-```
-source 'https://rubygems.org'
-
-gem 'rake'
-# Add your dependencies here:
-
-gem "bubble-wrap", "~> 1.7.1"
-gem 'motion-kit'
-gem 'sugarcube', require: ['sugarcube-color']
-```
+^ And now we have our first not-shit version.
+Let's add a label
 
 ---
 
 # Dum, de, dum
+## app/layotus/home\_screen\_layout.rb
 
 ```ruby
-add UILabel, :not
+def layout
+  ...
+  add UILabel, :not
+end
 ```
 
 ```ruby
 def not_style
   text 'NOT!'
-  color '#fff'.uicolor
+  color NSColor.whiteColor
   text_alignment NSTextAlignmentCenter
   constraints do
     width.equals(:logo)
@@ -749,6 +791,8 @@ def not_style
   end
 end
 ```
+
+^ in our layout file, we add a label, with the same width and position as the logo, height of 50px
 
 ---
 
@@ -761,16 +805,18 @@ class HomeScreenLayout < MotionKit::Layout
 ```
 
 ```ruby
-...
-@lets_go_button = add UIButton, :lets_go_button
-...
+def layout
+  ...
+  @lets_go_button = add UIButton, :lets_go_button
+  ...
+end
 ```
 
 ```ruby
 ...
 def lets_go_button_style
   title 'Let’s Go!'
-  title_color '#000'.uicolor
+  title_color NSColor.blackColor
   constraints do
     width.equals(:superview)
     top.equals(:logo, :bottom)
@@ -780,47 +826,19 @@ end
 ...
 ```
 
+^ Aaand we add a button, using the view method which is basically a fancy accessor.
+
 ---
 
 # Whoopsie daisy!
 
 ![inline](https://dl.dropboxusercontent.com/s/hj33tkw9qdhmtke/2014-09-22%20at%2022.56%202x.png?dl=0)
 
----
-
-# Gemfile
-
-```ruby
-source 'https://rubygems.org'
-
-gem 'rake'
-# Add your dependencies here:
-
-gem "bubble-wrap", "~> 1.7.1"
-gem 'motion-kit'
-gem 'sugarcube', require: ['sugarcube-color']
-```
-
-^ let's add sugarcube-events
-
----
-
-# Gemfile
-
-```ruby
-source 'https://rubygems.org'
-
-gem 'rake'
-# Add your dependencies here:
-
-gem "bubble-wrap", "~> 1.7.1"
-gem 'motion-kit'
-gem 'sugarcube', require: ['sugarcube-color', 'sugarcube-events']
-```
+^ And here's our layout, with a label and a button. We can do loads more if we want with frames and touch states etc. But for now this is good.
 
 --- 
 
-# app/home_view_controller.rb
+# app/home\_view\_controller.rb
 
 ```ruby
 class HomeViewController < UIViewController
@@ -833,6 +851,8 @@ class HomeViewController < UIViewController
 
 end
 ```
+
+^ meanwhile back in our view controller, let's add some actions.
 
 --- 
 
@@ -859,40 +879,28 @@ class HomeViewController < UIViewController
 end
 ```
 
-^ the when_tapped is from BubbleWrap
-
---- 
-
-# app/home_view_controller.rb
-
-```ruby
-class HomeViewController < UIViewController
-
-  def loadView
-    @layout = HomeScreenLayout.new
-    self.view = @layout.view
-    @layout.build
-  end
-
-  def viewDidLoad
-    @button = @layout.get(:lets_go_button)
-    @button.on(:touch) { open_meetups_list }
-  end
-
-  def open_meetups_list
-    App.alert("What meetups?")
-  end
-
-end
-```
-
-^ sugarcube syntax
+^ the when_tapped is from BubbleWrap ... and we pass in a block for the action we want to take.
 
 ---
+
+# OH NO!
 
 ![inline](https://dl.dropboxusercontent.com/s/v3u264b18omthox/2014-09-22%20at%2023.07%202x.png?dl=0)
 
+^ Ok, the button works!
+But now we need to actually do something.
+
 ---
+
+# A Web API
+
+![inline](https://dl.dropboxusercontent.com/s/fpmjlpgdfqynhi6/2014-09-23%20at%2017.52%202x.png)
+
+^ We have a simple API, but we'll need to talk to it (async preferably)
+
+---
+
+# AFMotion
 
 ![inline](https://dl.dropboxusercontent.com/s/u6vgoyzd9hfkeiy/2014-09-22%20at%2023.11%202x.png?dl=0)
 
@@ -900,7 +908,11 @@ end
 
 ---
 
+# AFNetworking
+
 ![inline](https://dl.dropboxusercontent.com/s/a226hc5fchoc4a6/2014-09-22%20at%2023.11%202x%20%281%29.png?dl=0)
+
+^ A modern, advanced, Cocoa-based, async HTTP library.
 
 ---
 
@@ -915,10 +927,9 @@ gem 'rake'
 gem 'afmotion'
 gem "bubble-wrap", "~> 1.7.1"
 gem 'motion-kit'
-gem 'sugarcube', require: ['sugarcube-color', 'sugarcube-events']
 ```
 
-^ AFMotion uses Cocoapods!
+^ Add AFMotion to your Gemfile. AFMotion uses Cocoapods!
 
 ---
 
@@ -926,7 +937,16 @@ gem 'sugarcube', require: ['sugarcube-color', 'sugarcube-events']
 
 ![inline](https://dl.dropboxusercontent.com/s/x1fn81h1e2y5936/2014-09-22%20at%2023.16%202x.png?dl=0)
 
+^ Cocoapods is like Rubygems, but for cocoa!
+RubyMotion has native support.
+
 ---
+
+# rake pod:install
+
+---
+
+# app/controllers/home\_view\_controller.rb
 
 ```ruby
 def open_meetups_list
@@ -939,6 +959,8 @@ def open_meetups_list
   end
 end
 ```
+
+^ Let's replace the `open_meetups_list` method
 
 ---
 
@@ -961,7 +983,7 @@ Apple's documentation is AWESOME. Use it. A lot.
 
 ![inline](https://dl.dropboxusercontent.com/s/rfbur2cm7ntfcom/2014-09-22%20at%2023.36%202x.png?dl=0)
 
-^ Xcode!
+^ So, Xcode is a beast. A friendly beast, but a beast nonetheless.
 
 ---
 
@@ -976,8 +998,6 @@ Apple's documentation is AWESOME. Use it. A lot.
 ---
 
 # RUBY
-
----
 
 ^ What if... instead of ...
 
@@ -1010,6 +1030,7 @@ end
 
 ^ what if, instead of actually learning what we're doing, 
 we could just write some ruby, and MAGIC happens
+Well, we CAN!
 
 ---
 
@@ -1033,8 +1054,9 @@ gem 'afmotion'
 gem "bubble-wrap", "~> 1.7.1"
 gem 'motion-kit'
 gem 'ProMotion'
-gem 'sugarcube', require: ['sugarcube-color', 'sugarcube-events']
 ```
+
+^ 
 
 ---
 
@@ -1066,11 +1088,15 @@ class HomeViewController < UIViewController
 end
 ```
 
+^ Here's what our home\_view\_controller was. 
+
 ---
 
 ```
 mv app/home_view_controller.rb app/screens/home_screen.rb
 ```
+
+^ ProMotion refers to screens as top level items. (Screens are superclassed from UIViewController ... they're still view controllers, but MAGIC view controllers)
 
 ---
 
@@ -1097,6 +1123,9 @@ class HomeScreen < PM::Screen
 end
 ```
 
+^ ProMotion replaces the default Cocoa delegate methods with it's own more Rubyish ones. I'm on the fence. I like camelCasing when I'm in CocoaLand.
+Now we need our TableView
+
 ---
 
 # app/screens/meetup\_list\_screen.rb
@@ -1105,6 +1134,8 @@ end
 class MeetupListScreen < PM::TableScreen
 end
 ```
+
+^ Just inherit from PM::Screen.
 
 ---
 
@@ -1115,6 +1146,8 @@ class MeetupListScreen < PM::TableScreen
   title "Meetups"
 end
 ```
+
+^ ProMotion includes a TON of convenience methods.
 
 ---
 
@@ -1129,6 +1162,8 @@ class MeetupListScreen < PM::TableScreen
   end
 end
 ```
+
+^ Let's build up our view
 
 ---
 
@@ -1156,6 +1191,8 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
+^ We'll push the JSON into a load_async method to populate an instance var
+
 ---
 
 ```ruby
@@ -1180,11 +1217,19 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
+^ ...and display a loading message
+
 ---
+
+# Weeeeeeee!
 
 ![inline](https://dl.dropboxusercontent.com/s/yqve80wpnmwulmf/2014-09-23%20at%2000.06%202x.png?dl=0)
 
+^ Yay!
+
 ---
+
+# app/screens/meetup\_list\_screen.rb
 
 ```ruby
 class MeetupListScreen < PM::TableScreen
@@ -1215,6 +1260,8 @@ end
 ```
 
 ---
+
+# app/screens/meetup\_list\_screen.rb
 
 ```ruby
 class MeetupListScreen < PM::TableScreen
@@ -1253,7 +1300,11 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
+^ Getting a bit hairy, but's pretty simple
+
 ---
+
+# app/screens/meetup\_list\_screen.rb
 
 ```ruby
 class MeetupListScreen < PM::TableScreen
@@ -1303,20 +1354,33 @@ class MeetupListScreen < PM::TableScreen
 
 end
 ```
+
+
+^ The full thing: long, but simple
 
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/2vz36eertpzyhs6/2014-09-23%20at%2000.08%202x.png?dl=0)
 
+^ Ok, here's where we're at.
+We have our homeview
+
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/yqve80wpnmwulmf/2014-09-23%20at%2000.06%202x.png?dl=0)
+
+^ Our loading view.
 
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/s7up1nxj4q6x3m3/2014-09-23%20at%2000.09%202x.png?dl=0)
 
+^ And once we've fetched our meetups, we have our list!
+ProMotion: ton of helpers. Want to add pull to refresh?
+
 ---
+
+# app/screens/meetup\_list\_screen.rb
 
 ```ruby
 class MeetupListScreen < PM::TableScreen
@@ -1344,15 +1408,19 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
-^ super easy to add pull to refresh
+^ super easy to add pull to refresh ... two simple lines
 
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/s7up1nxj4q6x3m3/2014-09-23%20at%2000.09%202x.png?dl=0)
 
+^ content before
+
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/ueu7vgt45csnvb7/2014-09-23%20at%2000.17%202x.png?dl=0)
+
+^ aaand pull to refresh
 
 ---
 
@@ -1415,8 +1483,9 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
-^ what if it could look like this?
-what if it could look like this AND work offline?
+^ Ok, here's where our code is at.
+But it's long. It also has an online dependency.
+Can we do better?
 
 ---
 
@@ -1444,6 +1513,9 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
+^ what if it could look like this AND work offline?
+In order to work offline we'll need persistence.
+
 ---
 
 # CDQ
@@ -1467,8 +1539,9 @@ gem "bubble-wrap", "~> 1.7.1"
 gem 'cdq'
 gem 'motion-kit'
 gem 'ProMotion'
-gem 'sugarcube', require: ['sugarcube-color', 'sugarcube-events']
 ```
+
+^ add cdq to Gemfile
 
 ---
 
@@ -1489,6 +1562,8 @@ $ cdq init
   Now edit schemas/0001_initial.rb to define your schema, and you're off and running.
 ```
 
+^ initilize cdq. This added a schema:build rake task to Rakefile
+
 ---
 
 # schemas/0001_initial.rb
@@ -1497,7 +1572,7 @@ $ cdq init
 schema "0001 initial" do
 
   entity 'Meetup' do
-    int32     :id
+    integer32 :id
     string    :title
     string    :presenter_name
     datetime  :time
@@ -1509,6 +1584,8 @@ schema "0001 initial" do
 end
 ```
 
+^ add the initial schema
+
 ---
 
 # app/models/meetup.rb
@@ -1517,6 +1594,9 @@ end
 class Meetup < CDQManagedObject
 end
 ```
+
+^ It's a little bit like ActiveRecord.
+But you need to tell your app you're using it
 
 ---
 
@@ -1532,6 +1612,8 @@ class AppDelegate < PM::Delegate
   end
 end
 ```
+
+^ Add CDQ to your app delegate, and set it up
 
 ---
 
@@ -1589,6 +1671,8 @@ end
 @saved_key=nil>
 ```
 
+^ queries ... don't over use, but great for filtering.
+
 ---
 
 ```ruby
@@ -1607,34 +1691,7 @@ Meetup.sort_by(:time).limit(5).offset(3)
 
 # cdq.save
 
----
-
-# app/models/meetup.rb
-
-```ruby
-class Meetup
-  def self.load_async(&block)
-    AFMotion::JSON.get('http://ruby-ireland-schedule-api.herokuapp.com/meetups.json') do |result|
-
-      if result.success?
-        App.delegate.cdq.reset!
-        result.object.each do |meetup_json|
-          meetup_json.delete(:url)
-          meetup_json['time'] = NSDate.dateWithNaturalLanguageString(
-            meetup_json['time']
-          )
-          Meetup.create(meetup_json)
-        end
-        App.delegate.cdq.save
-      else
-        @meetups = []
-      end
-
-      block.call
-    end
-  end
-end
-```
+^ don't forget to persist ... Core Data isn't an ORM.
 
 ---
 
@@ -1662,6 +1719,8 @@ class Meetup
   end
 end
 ```
+
+^ Let's push our loading to our model, and create objects
 
 ---
 
@@ -1685,11 +1744,14 @@ class Meetup
 end
 ```
 
-^ let's implement a detail view
+^ let's implement a master view ... using cdq to pull out meetups
 
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/ve8de22jixdh7tz/2014-09-23%20at%2001.03%202x.png?dl=0)
+
+^ It looks exactly the same, our code is cleaner
+Let's implement a detail view
 
 ---
 
@@ -1708,6 +1770,8 @@ class MeetupShowScreen < PM::TableScreen
 
 end
 ```
+
+^ keep it simple. No need to look up ... we can pass around objects... the app shares state, core data and RubyMotoin manage memory
 
 ---
 
@@ -1733,6 +1797,8 @@ class Meetup < CDQManagedObject
 end
 ```
 
+^ Let's add some actions
+
 ---
 
 # app/screens/meetup\_list\_screen.rb
@@ -1750,6 +1816,8 @@ class MeetupListScreen < PM::TableScreen
   ...
 end
 ```
+
+^ Modify our list screen to work offline.
 
 ---
 
@@ -1777,6 +1845,8 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
+^ add a loading state
+
 ---
 
 # app/screens/meetup\_list\_screen.rb
@@ -1802,7 +1872,7 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
-^ we're passing the meetup along
+^ and implement the rest of our view. we're passing the meetup along... and keeping track of loading. not quite dreamcode, but almost.
 
 ---
 
@@ -1850,9 +1920,17 @@ class MeetupListScreen < PM::TableScreen
 end
 ```
 
+^ our final view.
+
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/cfmz17sxj2wwkuz/2014-09-23%20at%2001.26%202x.png?dl=0)
+
+^ the detail view.
+
+---
+
+# DEMO
 
 ---
 
@@ -1875,7 +1953,8 @@ A lot of the Cocoa books and Apple samples teach IB, so it's really useful, part
 
 # Samples
 
-### https://github.com/HipByte/RubyMotionSamples
+#### https://github.com/HipByte/RubyMotionSamples
+#### https://github.com/motion-kit/motion-kit/tree/master/samples
 
 ^ Read all the sourcecode, download all the samples ...
 ... softens you to the way RubyMotion lets you use native Objective-C objects
@@ -1935,3 +2014,30 @@ Apex, web server ... cool
 - Loads more
 
 ^ there are actually so many books
+
+---
+
+# end
+
+---
+
+# Made with Deckset
+## http://www.decksetapp.com
+
+---
+
+# Slides
+
+#### https://github.com/paulca/ruby-ireland-23-sept-2014
+
+---
+
+# API
+
+#### https://github.com/paulca/ruby-ireland-schedule-api
+
+---
+
+# App
+
+#### https://github.com/paulca/ruby-ireland-schedule-app
