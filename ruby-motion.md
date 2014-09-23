@@ -86,7 +86,7 @@ left Apple, presumably because of Swift
 
 ---
 
-Is it native?
+# Is it native?
 
 ---
 
@@ -94,7 +94,7 @@ Is it native?
 
 ---
 
-But not proper native?
+# But not proper native?
 
 ---
 
@@ -102,11 +102,11 @@ But not proper native?
 
 ---
 
-# But it's a web view, right?
+# But Ruby is for web development, right?
 
 ---
 
-# No
+# NO!
 
 ---
 
@@ -139,6 +139,15 @@ But not proper native?
 ---
 
 # €99
+
+---
+
+# €99 (once off)
+
+---
+
+# €99 (once off)
+## (plus another €99 per year for your Apple Developer Membership)
 
 ---
 
@@ -201,7 +210,7 @@ But not proper native?
 @end
 ```
 
-^ That's just the header. I find it Objectionable!
+^ That was just the header. Here's the implementation. I find it Objectionable!
 
 ---
 
@@ -245,6 +254,26 @@ class ViewController: UIViewController {
 
 ^ Swift is super nice, but it's a bit like CoffeeScript and JavaScript
 Ruby is a _very_ nice language!
+
+--- 
+
+# Can you make real apps?
+
+---
+
+# Yup.
+
+---
+
+![inline](https://dl.dropboxusercontent.com/s/uv9pu8hgaqx69k7/2014-09-23%20at%2002.00%202x%20%281%29.png?dl=0)
+
+---
+
+![inline](https://dl.dropboxusercontent.com/s/b4hcgavjpypijs1/2014-09-23%20at%2002.01%202x.png?dl=0)
+
+---
+
+![inline](https://dl.dropboxusercontent.com/s/enxrfy2x0vclyxi/2014-09-23%20at%2002.02%202x.png?dl=0)
 
 --- 
 
