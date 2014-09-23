@@ -4,6 +4,36 @@
 
 ---
 
+# W-w-w-who?
+
+---
+
+# @paulca
+
+^ Twitter and GitHub
+
+---
+
+# paul@tito.io
+
+^ Anything I can do to help, just let me know
+
+---
+
+# Tito
+## https://ti.to
+
+^ Irish, not Tonganese!
+
+---
+
+# Úll
+## http://ull.ie
+
+^ Irish for Apple.
+
+---
+
 ## A Bit of Background
 
 ^ Laurent Sansonetti
@@ -15,8 +45,7 @@ left Apple, presumably because of Swift
 
 # What is RubyMotion?
 
-^
-* Ruby, but Native
+^ * Ruby, but Native
 * LLVM
 * Objective-C Runtime
 * iOS
@@ -113,6 +142,69 @@ But not proper native?
 
 ---
 
+# But WHHHHHHHYYYYYYYYY?
+
+^ Ruby is designed for programmer happiness and productivity. That hasn't changed.
+
+---
+
+```objectivec
+//
+//  ViewController.h
+//  Yarrr
+//
+//  Created by Paul Campbell on 22/09/2014.
+//  Copyright (c) 2014 Paul Campbell. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ViewController : UIViewController
+
+
+@end
+
+
+```
+
+^ this is what Xcode starts you off with
+
+---
+
+```objectivec
+//
+//  ViewController.m
+//  Yarrr
+//
+//  Created by Paul Campbell on 22/09/2014.
+//  Copyright (c) 2014 Paul Campbell. All rights reserved.
+//
+
+#import "ViewController.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
+```
+
+^ That's just the header. I find it Objectionable!
+
+---
+
 # What about Swift?
 
 ^ It's not Ruby
@@ -120,9 +212,43 @@ Swift will never do android
 It's almost like for like ... the beauty is the LLVM
 Swift, Objective-C, Ruby ... all interchangeable
 
+---
+
+```swift
+//
+//  ViewController.swift
+//  SwiftYarr
+//
+//  Created by Paul Campbell on 23/09/2014.
+//  Copyright (c) 2014 Paul Campbell. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
+}
+
+
+```
+
+^ Swift is super nice, but it's a bit like CoffeeScript and JavaScript
+Ruby is a _very_ nice language!
+
 --- 
 
-# DEMO TIME
+# LET'S MAKE A THING!
 
 ---
 
