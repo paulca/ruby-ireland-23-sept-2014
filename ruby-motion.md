@@ -8,6 +8,8 @@
 
 ^ Laurent Sansonetti
 MacRuby
+HipByte ... self-funded, bootstrapped company
+left Apple, presumably because of Swift
 
 ---
 
@@ -108,6 +110,15 @@ But not proper native?
 ---
 
 # €99
+
+---
+
+# What about Swift?
+
+^ It's not Ruby
+Swift will never do android
+It's almost like for like ... the beauty is the LLVM
+Swift, Objective-C, Ruby ... all interchangeable
 
 --- 
 
@@ -1687,3 +1698,85 @@ end
 ---
 
 ![inline](https://dl.dropboxusercontent.com/s/cfmz17sxj2wwkuz/2014-09-23%20at%2001.26%202x.png?dl=0)
+
+---
+
+# That's it! Yay!
+
+---
+
+# MORE STUFF
+
+---
+
+# Interface Builder
+
+### https://github.com/rubymotion/ib
+
+^ You can use Interface Builder, using the ib GEM
+A lot of the Cocoa books and Apple samples teach IB, so it's really useful, particularly for OS X
+
+---
+
+# Samples
+
+### https://github.com/HipByte/RubyMotionSamples
+
+^ Read all the sourcecode, download all the samples ...
+... softens you to the way RubyMotion lets you use native Objective-C objects
+
+---
+
+# OS X
+
+^ It just works and is great fun
+CDQ works here too (watch out for rake schema:build)
+Apex, web server ... cool
+
+---
+
+# Android
+
+^ Compiles to native JVM bytecode
+
+---
+
+# People to Follow
+
+* @lrz Laurent Sansonetti (MacRuby, RubyMotion)
+* @twerth Todd Worth (Ruby Dispatch, RMQ)
+* @seriousken Ken Miller (CDQ)
+* @jamonholmgren Jamon Holmgren (ProMotion)
+* @FluffyJack (Motion in Motion)
+
+^ Compiles to native JVM bytecode
+
+---
+
+# Tutorials
+
+* Getting started with Motion Kit and ProMotion: http://jamonholmgren.com/getting-started-with-motionkit-and-promotion
+* Building iOS forms the ProMotion way with ProMotion-form http://jamonholmgren.com/building-ios-forms-the-promotion-way-with-promotion-form
+
+---
+
+# Screencasts
+
+* Motion in Motion https://motioninmotion.tv
+* AUD$9 per month
+
+---
+
+# Email Weekly
+
+* http://rubymotiondispatch.com
+
+---
+
+# Books
+
+- Cocoa Programming for Mac OS X
+- Big Nerd Ranch iOS Programming
+- Loads more
+
+^ there are actually so many books
